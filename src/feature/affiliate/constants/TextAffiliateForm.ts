@@ -1,3 +1,5 @@
+import { optional } from "zod";
+
 const texts = {
   info: 'INFORMACION DEL AFILIADO',
   details: 'DETALLES',
@@ -67,6 +69,10 @@ const texts = {
     },
   },
   numberIdentification: 'NUMERO DE IDENTIFICACION *',
+  email: 'CORREO (opcional)',
+  phone: 'CELULAR',
+  optionalBeneficiary: 'INFORMACION DE BENEFICIARIO (opcional)',
+  optionalBeneficiaryDetails: 'DETALLES',
 };
 
 export default texts;

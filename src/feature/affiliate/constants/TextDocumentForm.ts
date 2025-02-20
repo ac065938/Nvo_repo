@@ -9,6 +9,24 @@ const texts = {
   CURP: 'CURP',
   taxCertificate: 'Constancia de Fiscal',
   domicileProof: 'Comprobante de Domicilio',
+  licenseAffiliated: {
+    title: 'Licencia de Conducir (Solo si aplica a sindicato de vehiculos)',
+    license: 'Licencia',
+    details: 'Detalles',
+    includeLicense: 'Incluir Licencia',
+    typeVehicle: 'Tipo de Vehículo',
+    typeVehicleOptions: {
+      car: 'Carro',
+      motorcycle: 'Moto',
+      truck: 'Camion',
+      bus: 'Autobus',
+      other: 'Otro',
+    },
+
+    mark: 'Marca',
+    typeLicense: 'Tipo de Licencia',
+    numLicense: 'Numero de Licencia',
+  },
 };
 
 export default texts;

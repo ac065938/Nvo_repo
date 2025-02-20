@@ -11,8 +11,8 @@ import {
   InputAdornment,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import texts from '../constants/TextSignIn.js';
-import { loginSchema } from '../schemas/loginSchemas.js';
+import texts from '../constants/TextSignIn.ts';
+import { loginSchema } from '../schemas/LoginSchemas.ts';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
