@@ -14,6 +14,7 @@ export const personalData = {
       gender: 'Genero',
       nationality: 'Nacionalidad',
       typeAffiliate: 'Tipo de afiliado',
+      typeIndentify: 'Tipo de identificacion',
       emergencyContactName: 'Nombre',
       emergencyContactLastName: 'Apellidos',
       emergencyContactPhone: 'Telefono',
@@ -54,5 +55,11 @@ export const personalData = {
       principal: { value: 'principal', label: 'Principal' },
       dependent: { value: 'dependent', label: 'Dependiente' },
     },
+
+    typeIndentify: {
+      curp: { value: 'curp', label: 'CURP' },
+      rfc: { value: 'rfc', label: 'RFC' },
+      ss: { value: 'ss', label: 'SS' },
+    }
   },
 };

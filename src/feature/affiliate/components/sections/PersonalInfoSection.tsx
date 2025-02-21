@@ -1,7 +1,12 @@
 import { Box, TextField, Typography } from '@mui/material';
 import { personalData } from '../../constants/personalDataText';
 import { useFormContext } from 'react-hook-form';
-
+import CivilStatusField from '../fields/CivilStatusField';
+import TypeIndentifyField from '../fields/TypeIndentifyField';
+import TypeAffiliateField from '../fields/TypeAffiliateField';
+import GenderField from '../fields/GenderField';
+import NationalityField from '../fields/NacionalityField';
+import OccupationField from '../fields/OccupationField';
 const {
   texts: { title, description, field },
 } = personalData;
@@ -59,6 +64,12 @@ export default function PersonalInfoSection() {
           fullWidth
           required
         />
+        <CivilStatusField />
+        <TypeAffiliateField />
+        <GenderField />
+        <NationalityField />
+        <TypeIndentifyField />
+        <OccupationField />
       </Box>
     </Box>
   );

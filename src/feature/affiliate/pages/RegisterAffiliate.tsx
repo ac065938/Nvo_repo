@@ -3,6 +3,7 @@ import { Box, Stepper, Step, StepLabel, Button, Typography } from '@mui/material
 import { FormProvider, useForm } from 'react-hook-form';
 import { multiStepForm } from '../constants/MultiStepFormText';
 import EmergencyContactForm from '../components/forms/EmergencyContactForm';
+import DocumentUploadForm from '../components/forms/DocumentUploadForm';
 import AffiliateForm from '../components/forms/AffiliateForm';
 import { MultiStepSchema } from '../schemas/MultiStepSchema.ts';
 import { defaultValues } from '../schemas/DefaultValues.ts';
@@ -46,7 +47,8 @@ export default function RegisterAffiliateSteps() {
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           {activeStep === 0 && <AffiliateForm />}
           {activeStep === 1 && <EmergencyContactForm />}
-          {activeStep === 2 && (
+          {activeStep === 2 && <DocumentUploadForm/>}
+          {activeStep === 3 && (
             <Box>
               <Typography variant='h5' className='mb-4'>
                 {multiStepForm.review.title}

@@ -5,6 +5,11 @@ export const defaultValues: MultiStepType = {
   lastName: '',
   curp: '',
   rfc: '',
+  civilStatus: '',
+  occupation: '',
+  nationality: '',
+  typeAffiliate: '',
+  typeIndentify: '',
   domicile: {
     country: '',
     state: '',

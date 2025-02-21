@@ -4,6 +4,12 @@ export const stepValidationField: Record<number, string[]> = {
     'lastName',
     'curp',
     'rfc',
+    'civilStatus',
+    'typeIndentify',
+    'typeAffiliate',
+    'occupation',
+    'gender',
+    'nationality',
     'domicile.country',
     'domicile.state',
     'domicile.municipality',
@@ -25,5 +31,6 @@ export const stepValidationField: Record<number, string[]> = {
     'emergencyContact.zipCode',
     'emergencyContact.numInside',
     'emergencyContact.numOutside',
-  ]
+  ],
+  2:[]
 };

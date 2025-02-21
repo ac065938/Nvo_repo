@@ -18,6 +18,12 @@ export const DataPersonalSchema = zod.object({
     .string()
     .nonempty({ message: 'El RFC es obligatorio' })
     .length(13, { message: 'El RFC no puede superar los 13 caracteres' }),
+  civilStatus: zod.string().nonempty({ message: 'El estado civil es obligatorio' }),
+  occupation: zod.string().nonempty({ message: 'La ocupación es obligatorio' }),
+  gender: zod.string().nonempty({ message: 'El genero es obligatorio' }),
+  nationality: zod.string().nonempty({ message: 'La nacionalidad es obligatorio' }),
+  typeAffiliate: zod.string().nonempty({ message: 'El tipo de afiliado es obligatorio' }),
+  typeIndentify: zod.string().nonempty({ message: 'El tipo de identificacion es obligatorio' }),
 });
 
 export type DataPersonalType = zod.infer<typeof DataPersonalSchema>;
