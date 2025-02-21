@@ -1,19 +1,23 @@
 import { useState } from 'react';
 import { Box, Stepper, Step, StepLabel, Button, Typography } from '@mui/material';
-import { FormProvider } from 'react-hook-form';
-import PrincipalAffiliatedForm from '../components/PrincipalAffiliated.form.tsx';
-import UploadingDocuments from '../components/DocumentsUpload.form.tsx';
-import EmergencyContactForm from '../components/EmergencyContact.form.tsx';
-import MultiStepAffiliateSchema from '../schemes/MainSchema.ts';
+import { FormProvider, useForm } from 'react-hook-form';
+import { multiStepForm } from '../constants/MultiStepFormText';
+import EmergencyContactForm from '../components/forms/EmergencyContactForm';
+import AffiliateForm from '../components/forms/AffiliateForm';
+import { MultiStepSchema } from '../schemas/MultiStepSchema.ts';
+import { defaultValues } from '../schemas/DefaultValues.ts';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { stepValidationField } from '../constants/StepValidatonField.ts';
 
-export default function MultiStepForm() {
+export default function RegisterAffiliateSteps() {
   const [activeStep, setActiveStep] = useState(0);
-  const steps = ['Registrar afiliado', 'Contacto de emergencia', 'Documentos', 'Finzalizar'];
-
-  const methods = MultiStepAffiliateSchema();
-
+  const steps = multiStepForm.steps;
+  const methods = useForm({
+    defaultValues,
+    resolver: zodResolver(MultiStepSchema),
+  });
   const handleNext = async () => {
-    const valid = await methods.trigger();
+    const valid = await methods.trigger(stepValidationField[activeStep]);
     if (valid) {
       setActiveStep((prev) => prev + 1);
     }
@@ -24,6 +28,7 @@ export default function MultiStepForm() {
   };
 
   const onSubmit = (data: FormData) => {
+    console.log('printing...');
     console.log('Datos del formulario:', data);
   };
 
@@ -39,29 +44,28 @@ export default function MultiStepForm() {
         </Stepper>
 
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          {activeStep === 0 && <PrincipalAffiliatedForm />}
+          {activeStep === 0 && <AffiliateForm />}
           {activeStep === 1 && <EmergencyContactForm />}
-          {activeStep === 2 && <UploadingDocuments />}
-          {activeStep === 3 && (
+          {activeStep === 2 && (
             <Box>
               <Typography variant='h5' className='mb-4'>
-                Revisión
+                {multiStepForm.review.title}
               </Typography>
-              <Typography variant='body1'>Todos los campos se validaron correctamente.</Typography>
+              <Typography variant='body1'>{multiStepForm.review.description}</Typography>
             </Box>
           )}
 
           <Box className='flex justify-between mt-4'>
             <Button disabled={activeStep === 0} onClick={handleBack} variant='outlined'>
-              Atrás
+              {multiStepForm.button.back}
             </Button>
             {activeStep === steps.length - 1 ? (
               <Button type='submit' variant='contained' color='primary'>
-                Enviar
+                {multiStepForm.button.submit}
               </Button>
             ) : (
               <Button type='button' onClick={handleNext} variant='contained' color='primary'>
-                Siguiente
+                {multiStepForm.button.next}
               </Button>
             )}
           </Box>

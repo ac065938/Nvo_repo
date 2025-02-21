@@ -9,19 +9,15 @@ export const DataPersonalSchema = zod.object({
     .string()
     .nonempty({ message: 'El apellido es obligatorio' })
     .max(75, { message: 'El apellido no puede superar los 75 caracteres' }),
-  dateOfBirth: zod.string().nonempty({ message: 'La fecha es obligatoria' }),
+  //dateOfBirth: zod.string().nonempty({ message: 'La fecha de nacimiento es obligatorio' }),
   curp: zod
     .string()
     .nonempty({ message: 'El CURP es obligatorio' })
-    .length(18, { message: 'El CURP debe tener 18 caracteres' }),
+    .length(18, { message: 'El CURP no puede superar los 18 caracteres' }),
   rfc: zod
     .string()
     .nonempty({ message: 'El RFC es obligatorio' })
-    .length(13, { message: 'El RFC debe tener 13 caracteres' }),
-  numIdentification: zod
-    .string()
-    .nonempty({ message: 'El numero de identificacion es obligatorio' })
-    .max(75, { message: 'El numero de identificacion no puede superar los 75 caracteres' }),
+    .length(13, { message: 'El RFC no puede superar los 13 caracteres' }),
 });
 
 export type DataPersonalType = zod.infer<typeof DataPersonalSchema>;
